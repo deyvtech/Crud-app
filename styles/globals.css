@@ -8,7 +8,14 @@
 }
 
 @layer components {
-  .btn {
-    @apply bg-red-400
+  .btn-delete {
+    @apply bg-red-400 py-[6px] px-8 rounded-lg text-white hover:bg-red-200 hover:text-black transition-all duration-150 ease-in-out cursor-pointer
+  }
+  .btn-update {
+    @apply bg-green-400 py-[6px] px-8 rounded-lg text-white hover:bg-green-200 hover:text-black transition-all duration-150 ease-in-out cursor-pointer
+  }
+
+  .btn-details {
+    @apply bg-cyan-400 py-[6px] px-8 rounded-lg text-white hover:bg-cyan-200 hover:text-black transition-all duration-150 ease-in-out cursor-pointer
   }
 }
