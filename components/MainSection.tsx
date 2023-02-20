@@ -57,7 +57,12 @@ export default function MainSection() {
 
     //UPDATE
     //it will store all data from child on update functions
-    const [update, setUpdate] = useState('')
+    const [update, setUpdate] = useState({
+        name: '',
+        age: '',
+        email: '',
+        gender: '',
+    })
     const callback = (payload: any) => {
         setUpdate(payload)
     }
@@ -65,7 +70,7 @@ export default function MainSection() {
     const updated = (id: any) => {
         setStoreInfo(storeInfo.map((info: any) => {
             if (info.id === id) {
-                    return {...info, name: update}
+                return { ...info, name: update.name, age: update.age, email: update.email, gender: update.gender  }
             }
             else {
                 return info

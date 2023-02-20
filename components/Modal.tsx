@@ -1,10 +1,22 @@
 import {useState} from 'react'
 export default function Modal(props: {update: any, hidden: any, close: any}) {
 
-const [update, setUpdate] = useState('')
+    const [update, setUpdate] = useState({
+        name: '',
+        age: '',
+        email: '',
+        gender: '',
+})
 
     const getvalue = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setUpdate(e.target.value)
+
+        const {name, value} = e.target
+
+        setUpdate((prev) => {
+            return (
+                {...prev, [name]: value}
+            )
+        })
     }
 
     //two functions on onclick event
@@ -28,6 +40,7 @@ const [update, setUpdate] = useState('')
                     <input
                         type="text"
                         className="py-1 px-2 border-2 rounded-md"
+                        name='name'
                         onChange={getvalue}
                     />
                 </div>
@@ -36,6 +49,8 @@ const [update, setUpdate] = useState('')
                     <input
                         type="text"
                         className="py-1 px-2 border-2 rounded-md"
+                        name='age'
+                        onChange={getvalue}
                     />
                 </div>
 
@@ -44,6 +59,8 @@ const [update, setUpdate] = useState('')
                     <input
                         type="email"
                         className="py-1 px-2 border-2 rounded-md"
+                        name='email'
+                        onChange={getvalue}
                     />
                 </div>
                 <div className="p-2 grid grid-cols-1/2">
@@ -51,6 +68,8 @@ const [update, setUpdate] = useState('')
                     <input
                         type="text"
                         className="py-1 px-2 border-2 rounded-md"
+                        name='gender'
+                        onChange={getvalue}
                     />
                 </div>
 
