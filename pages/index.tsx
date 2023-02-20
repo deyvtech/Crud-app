@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main className='h-[70vh]'>
+      <main className='h-[70vh]  overflow-y-scroll'>
           
         <MainSection />
      
