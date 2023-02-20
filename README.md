@@ -1,6 +1,6 @@
-## Crud App
+# Crud App
 
-# NextJS and Tailwind
+### NextJS and Tailwind
  *add, update, delete*
 
 [Live Demo](https://crud-app-psi-lyart.vercel.app/)
