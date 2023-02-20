@@ -32,6 +32,8 @@ export default function Modal(props: {update: any, hidden: any, close: any}) {
     }
 
 
+
+
     return (
         <div className={props.hidden ? `visible flex absolute items-center w-full inset-0 bg-black/30` : `hidden`}>
             <div className="bg-white/70 h-[300px] w-4/12 mx-auto flex flex-col text-center justify-center rounded-md drop-shadow-lg backdrop-blur-sm">

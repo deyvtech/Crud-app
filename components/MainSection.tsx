@@ -125,7 +125,7 @@ export default function MainSection() {
                 <button className="w-36 btn-add" onClick={addInfo}>Add</button>
             </div>
 
-            <Modal hidden={closeModal} close={() => setCloseModal(false)} update={ callback } />
+            <Modal hidden={closeModal} close={() => setCloseModal(false)} update={callback} />
             <table className="table-auto w-full">
                 <thead>
                     <tr className="text-center bg-green-400 h-12">
@@ -152,8 +152,7 @@ export default function MainSection() {
                                     <td><button className="btn-details">Details</button></td>
                                     <td><button className="btn-update" onClick={() => setCloseModal(true)}>Edit</button></td>
                                 <td><button className="btn-delete" onClick={() => deleteData(info.id)}>Delete</button></td>
-                                <td><button className="btn-update" onClick={() => updated(info.id)}>Update</button></td>
-                                
+                                <td><button className="btn-update" onClick={() => updated(info.id)}>Update</button></td> 
                                 </tr>
                             )
                     })}
