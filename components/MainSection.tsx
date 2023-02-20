@@ -9,12 +9,13 @@ export default function MainSection() {
     const [storeInfo, setStoreInfo] = useState([] as any)
     const [valueOnInput, setValueOnInpput] = useState({ 
         //store here the data from input
-        id: 0,
+        id: '',
         name: '',
         age: '',
         email: '',
         gender: ''
     })
+    //ADD
     const handleFnameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         //use destructuring and get the data
         const { name, value } = e.target
@@ -26,7 +27,7 @@ export default function MainSection() {
         })
     }
 
-    const combinedData = () => {
+    const addInfo = () => {
         //then pass the data here
         const infoObject = {
             id: storeInfo.length === 0 ? storeInfo.length + 1 : storeInfo.length + 1,
@@ -38,8 +39,15 @@ export default function MainSection() {
         setStoreInfo([...storeInfo, infoObject])
     }
 
+//DELETE
+    const deleteData = (id: any) => {
+        //it will return the data that is not equal to id. if you have 3 list the you clicked the id#2 the it will return only id[1 nand 3]
+        const deleteData = storeInfo.filter((info: any) => {
+            return info.id !== id
+        })
+        setStoreInfo(deleteData)
+    }
 
-    console.log(storeInfo)
     return (
         <div>
             <div id="form" className="mx-auto flex py-4 ">
@@ -80,7 +88,7 @@ export default function MainSection() {
                         onChange={handleFnameChange}
                     />
                 </div>
-                <button className="w-36 btn-add" onClick={combinedData}>Add</button>
+                <button className="w-36 btn-add" onClick={addInfo}>Add</button>
             </div>
 
             <Modal hidden={closeModal} close={() => setCloseModal(false)} />
@@ -101,16 +109,16 @@ export default function MainSection() {
                 {storeInfo.map((info: any) => {
                     return (
                         <>
-                            <tbody className="mt-2" key={uuidv4()}>
+                            <tbody className="mt-2">
                                 <tr className="text-center border">
-                                    <td className=" p-4">{info.id  }</td>
+                                    <td className=" py-4"> {info.id}</td>
                                     <td>{info.name}</td>
                                     <td>{info.age}</td>
                                     <td>{info.email}</td>
                                     <td>{info.gender}</td>
                                     <td><button className="btn-details">Details</button></td>
                                     <td><button className="btn-update" onClick={() => setCloseModal(true)}>Update</button></td>
-                                    <td ><button className="btn-delete">Delete</button></td>
+                                    <td ><button className="btn-delete" onClick={()=> deleteData(info.id)}>Delete</button></td>
                                 </tr>
                             </tbody>
                         </>)
